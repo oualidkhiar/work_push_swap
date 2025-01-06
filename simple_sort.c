@@ -6,7 +6,7 @@
 /*   By: oukhiar <oukhiar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 18:13:37 by oukhiar           #+#    #+#             */
-/*   Updated: 2024/12/30 13:46:59 by oukhiar          ###   ########.fr       */
+/*   Updated: 2025/01/06 16:43:31 by oukhiar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void sort_three_arguments(t_stack **stack)
 		(swap_ab(stack),rev_rotate_ab(stack), ft_putstr("sa\nrra\n"));
 }
 
-static void execute_ra_pb(t_stack **stack_a, t_stack **stack_b, int index)
+void execute_ra_pb(t_stack **stack_a, t_stack **stack_b, int index)
 {
 	while (index > 0)
 	{
@@ -39,12 +39,12 @@ static void execute_ra_pb(t_stack **stack_a, t_stack **stack_b, int index)
 	(push_to_b(stack_a, stack_b), ft_putstr("pb\n"));
 }
 
-static void execute_rra_pb(t_stack **stack_a, t_stack **stack_b, int size, int index_min)
+void execute_rra_pb(t_stack **stack_a, t_stack **stack_b, int size, int index_min)
 {
 	int count;
 
 	count = size - index_min;
-	while (count >= 0)
+	while (count > 0)
 	{
 		(rev_rotate_ab(stack_a), ft_putstr("rra\n"));
 		count--;
@@ -62,11 +62,11 @@ void ft_simple_sort(t_stack **stack_a, t_stack **stack_b)
 {
 	int index_min;
 
-	if (ft_size_of_stack(*stack_a) == 1)
+	if (ft_size_of_stack(*stack_a) == 2)
 		sort_two_arguments(stack_a);
     while (!ft_is_empty(*stack_a))
     {
-		if (ft_size_of_stack(*stack_a) == 2)
+		if (ft_size_of_stack(*stack_a) == 3)
 		{
 			sort_three_arguments(stack_a);
 			break ;

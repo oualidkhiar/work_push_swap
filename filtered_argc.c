@@ -6,7 +6,7 @@
 /*   By: oukhiar <oukhiar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 14:36:01 by oukhiar           #+#    #+#             */
-/*   Updated: 2024/12/29 20:57:54 by oukhiar          ###   ########.fr       */
+/*   Updated: 2025/01/06 16:31:59 by oukhiar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,8 @@ static int	add_words(char **filtered, char **words) {
 	int i;
 
 	i = 0;
-	while (words[i]) {
+	while (words[i])
+	{
 		filtered[i] = words[i];
 		i++;
 	}

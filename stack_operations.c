@@ -6,7 +6,7 @@
 /*   By: oukhiar <oukhiar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 16:46:56 by oukhiar           #+#    #+#             */
-/*   Updated: 2024/12/29 20:37:30 by oukhiar          ###   ########.fr       */
+/*   Updated: 2025/01/03 22:41:37 by oukhiar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,14 +71,12 @@ int ft_find_index_max(t_stack *stack)
 int ft_size_of_stack(t_stack *stack)
 {
 	int size;
-	t_stack *tmp;
-
-	tmp = stack;
+	
 	size = 0;
-	while (tmp->next != NULL)
+	while (stack)
 	{
 		size++;
-		tmp = tmp->next;
+		stack = stack->next;
 	}
 	return (size);
 }

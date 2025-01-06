@@ -6,7 +6,7 @@
 /*   By: oukhiar <oukhiar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 14:47:52 by oukhiar           #+#    #+#             */
-/*   Updated: 2024/12/29 20:46:44 by oukhiar          ###   ########.fr       */
+/*   Updated: 2025/01/06 17:33:38 by oukhiar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,19 +35,18 @@ void stack_push(t_stack **stack, int element)
 
 int ft_stack_fill(int ac, char **av, t_stack **stack)
 {
-	int	i;
 	int value;
 
-	i = 0;
-	while (i < ac)
+	ac -= 1;
+	while (ac >= 0)
 	{
-		if(ft_is_digits(av[i]) == 0)
+		if(ft_is_digits(av[ac]) == 0)
 			return (0);
-		value = ft_atoi(av[i]);
+		value = ft_atoi(av[ac]);
 		if (check_value(*stack, value) == 0)
 			return (0);
 		stack_push(stack, value);
-		i++;
+		ac--;
 	}
 	return (1);
 }

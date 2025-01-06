@@ -6,13 +6,13 @@
 /*   By: oukhiar <oukhiar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 11:42:12 by oukhiar           #+#    #+#             */
-/*   Updated: 2025/01/01 20:47:38 by oukhiar          ###   ########.fr       */
+/*   Updated: 2025/01/03 15:45:11 by oukhiar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ft_swap_arr(int *arr, int first_index, int seconde_index)
+static void ft_swap_arr(int *arr, int first_index, int seconde_index)
 {
 	int tmp;
 
@@ -21,7 +21,7 @@ void ft_swap_arr(int *arr, int first_index, int seconde_index)
 	arr[seconde_index] = tmp;
 }
 
-int ft_patition(int *arr, int start_index, int end_indix)
+static int ft_patition(int *arr, int start_index, int end_indix)
 {
     int i;
 	int j;
@@ -45,25 +45,14 @@ int ft_patition(int *arr, int start_index, int end_indix)
 	return (i);
 }
 
-
  void quicksort(int *arr, int start_index, int end_indix)
  {
+	int new_pivot_index;
+
 	if (start_index < end_indix)
 	{
-    	int new_pivot_index = ft_patition(arr, start_index, end_indix);
+    	new_pivot_index = ft_patition(arr, start_index, end_indix);
 		quicksort(arr, start_index, new_pivot_index - 1);
 		quicksort(arr, new_pivot_index + 1, end_indix);
 	}
  }
-
-int main ()
-{
-	int i = 0;
-	int arr[6] = {1,3,2,7,8,9};
-	quicksort(arr, 0, 5);
-	while (i < 6)
-	{
-		printf("%d ",arr[i]);
-		i++;
-	}
-}
