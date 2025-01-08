@@ -6,7 +6,7 @@
 /*   By: oukhiar <oukhiar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 14:42:55 by oukhiar           #+#    #+#             */
-/*   Updated: 2024/12/28 14:44:12 by oukhiar          ###   ########.fr       */
+/*   Updated: 2025/01/07 16:14:51 by oukhiar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	swap_ab(t_stack **stack)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	if (ft_is_empty(*stack) == 1)
 		return ;
 	tmp = *stack;
 	if ((*stack)->next == NULL)
 		return ;
-	*stack = (*stack)->next; 
+	*stack = (*stack)->next;
 	tmp->next = (*stack)->next;
 	(*stack)->next = tmp;
 }

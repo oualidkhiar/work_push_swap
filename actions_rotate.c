@@ -6,7 +6,7 @@
 /*   By: oukhiar <oukhiar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 14:45:01 by oukhiar           #+#    #+#             */
-/*   Updated: 2024/12/28 14:46:34 by oukhiar          ###   ########.fr       */
+/*   Updated: 2025/01/07 16:14:34 by oukhiar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	rotate_ab(t_stack **stack)
 {
-	t_stack *tmp;
+	t_stack		*tmp;
 
 	if (ft_is_empty(*stack) == 1)
 		return ;
@@ -36,8 +36,8 @@ void	rotate_rr(t_stack **stack_a, t_stack **stack_b)
 
 void	rev_rotate_ab(t_stack **stack)
 {
-	t_stack *last;
-	t_stack *befor_last;
+	t_stack	*last;
+	t_stack	*befor_last;
 
 	if (ft_is_empty(*stack) == 1 || (*stack)->next == NULL)
 		return ;

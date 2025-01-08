@@ -6,28 +6,31 @@
 /*   By: oukhiar <oukhiar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 14:36:01 by oukhiar           #+#    #+#             */
-/*   Updated: 2025/01/06 16:31:59 by oukhiar          ###   ########.fr       */
+/*   Updated: 2025/01/07 16:17:24 by oukhiar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int check_space(char *str)
+static int	check_space(char *str)
 {
-    while (*str)
-    {
-        if (*str == ' ')
-            return (1);
-        str++;
-    }
-    return (0);
+	while (*str)
+	{
+		if (*str == ' ')
+			return (1);
+		str++;
+	}
+	return (0);
 }
 
-static int count_sub_numbers(char *str) {
-	int j = 0;
-	int count = 0;
-	int state;
+static int	count_sub_numbers(char *str)
+{
+	int	j;
+	int	count;
+	int	state;
 
+	j = 0;
+	count = 0;
 	state = 0;
 	while (str[j])
 	{
@@ -40,13 +43,13 @@ static int count_sub_numbers(char *str) {
 		}
 		j++;
 	}
-	return (count); 
+	return (count);
 }
 
-static int ft_count_elements(int ac, char **av)
+static int	ft_count_elements(int ac, char **av)
 {
-	int i;
-	int elements;
+	int	i;
+	int	elements;
 
 	i = 0;
 	elements = 0;
@@ -61,8 +64,9 @@ static int ft_count_elements(int ac, char **av)
 	return (elements);
 }
 
-static int	add_words(char **filtered, char **words) {
-	int i;
+static int	add_words(char **filtered, char **words)
+{
+	int	i;
 
 	i = 0;
 	while (words[i])
@@ -73,7 +77,7 @@ static int	add_words(char **filtered, char **words) {
 	return (i);
 }
 
-char **filter(int ac, char **av)
+char	**filter(int ac, char **av)
 {
 	int		i;
 	int		index;

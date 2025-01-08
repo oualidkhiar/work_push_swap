@@ -6,7 +6,7 @@
 /*   By: oukhiar <oukhiar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 15:20:26 by oukhiar           #+#    #+#             */
-/*   Updated: 2025/01/06 21:14:40 by oukhiar          ###   ########.fr       */
+/*   Updated: 2025/01/07 17:38:56 by oukhiar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,14 @@ int main(int ac, char **av)
 		return (0);
 	}
 	// ft_printstack(stack_a);
-	// ft_simple_sort(&stack_a, &stack_b);
+	ft_simple_sort(&stack_a, &stack_b);
 	// ft_printstack(stack_a);
 	// printf("here is stack B \n");
 	// ft_printstack(stack_b);
 	// printf("here is stack A after sorting \n");
 	// ft_printstack(stack_a);
 	// printf("\n");
-	ft_large_sort(&stack_a, &stack_b);
+	// ft_large_sort(&stack_a, &stack_b);
 	// ft_printstack(stack_b);
 	// ft_printstack(stack_a);
 	// if (ft_is_sorted(stack_a) == 1)

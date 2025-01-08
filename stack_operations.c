@@ -6,18 +6,18 @@
 /*   By: oukhiar <oukhiar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 16:46:56 by oukhiar           #+#    #+#             */
-/*   Updated: 2025/01/03 22:41:37 by oukhiar          ###   ########.fr       */
+/*   Updated: 2025/01/07 17:30:30 by oukhiar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int ft_find_index_min(t_stack *stack)
+int	ft_find_index_min(t_stack *stack)
 {
-    int min;
-    int i;
-	t_stack *tmp;
-	int j;
+	int		min;
+	int		i;
+	t_stack	*tmp;
+	int		j;
 
 	i = 0;
 	j = 0;
@@ -25,27 +25,27 @@ int ft_find_index_min(t_stack *stack)
 	if (ft_is_empty(stack))
 		return (-1);
 	min = ft_peek(stack);
-    while (tmp->next != NULL)
-    {
-        if (min > tmp->data)
+	while (tmp->next != NULL)
+	{
+		if (min > tmp->data)
 		{
-        	min = tmp->data;
+			min = tmp->data;
 			i = j;
 		}
-	j++;
-    tmp = tmp->next;
-    }
+		j++;
+		tmp = tmp->next;
+	}
 	if (tmp->data < min)
 		return (j);
-    return (i);
+	return (i);
 }
 
-int ft_find_index_max(t_stack *stack)
+int	ft_find_index_max(t_stack *stack)
 {
-    int max;
-    int i;
-	t_stack *tmp;
-	int j;
+	int		max;
+	int		i;
+	t_stack	*tmp;
+	int		j;
 
 	i = 0;
 	j = 0;
@@ -53,25 +53,25 @@ int ft_find_index_max(t_stack *stack)
 	if (ft_is_empty(stack))
 		return (-1);
 	max = ft_peek(stack);
-    while (tmp->next != NULL)
-    {
-        if (max < tmp->data)
+	while (tmp->next != NULL)
+	{
+		if (max < tmp->data)
 		{
-        	max = tmp->data;
+			max = tmp->data;
 			i = j;
 		}
-	j++;
-    tmp = tmp->next;
-    }
+		j++;
+		tmp = tmp->next;
+	}
 	if (tmp->data > max)
 		return (j);
-    return (i);
+	return (i);
 }
 
-int ft_size_of_stack(t_stack *stack)
+int	ft_size_of_stack(t_stack *stack)
 {
-	int size;
-	
+	int	size;
+
 	size = 0;
 	while (stack)
 	{

@@ -6,13 +6,13 @@
 /*   By: oukhiar <oukhiar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 15:05:44 by oukhiar           #+#    #+#             */
-/*   Updated: 2025/01/06 19:08:06 by oukhiar          ###   ########.fr       */
+/*   Updated: 2025/01/07 17:15:11 by oukhiar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ft_printstack(t_stack *stack_a)
+void	ft_printstack(t_stack *stack_a)
 {
 	if (stack_a == NULL)
 		return ;
@@ -26,11 +26,10 @@ void	ft_putstr(char *s)
 		return ;
 	while (*s)
 	{
-		write(1 , s, 1);
+		write (1, s, 1);
 		s++;
 	}
 }
-
 
 size_t	ft_strlen(const char *s)
 {
@@ -58,7 +57,6 @@ char	*ft_strdup(const char *s1)
 	*s2 = '\0';
 	return (base_s2);
 }
-
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
