@@ -6,7 +6,7 @@
 /*   By: oukhiar <oukhiar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 14:36:01 by oukhiar           #+#    #+#             */
-/*   Updated: 2025/01/07 16:17:24 by oukhiar          ###   ########.fr       */
+/*   Updated: 2025/01/08 14:30:22 by oukhiar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ char	**filter(int ac, char **av)
 			if (!words)
 				return (NULL);
 			index += add_words(filter_av + index, words);
-			free (words);
+			free(words);
 		}
 		else
 			filter_av[index++] = ft_strdup(av[i]);

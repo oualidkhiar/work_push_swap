@@ -6,7 +6,7 @@
 /*   By: oukhiar <oukhiar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 15:05:44 by oukhiar           #+#    #+#             */
-/*   Updated: 2025/01/07 17:15:11 by oukhiar          ###   ########.fr       */
+/*   Updated: 2025/01/08 11:56:21 by oukhiar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_printstack(t_stack *stack_a)
 {
 	if (stack_a == NULL)
 		return ;
-	printf("%d ", stack_a->data);
+	printf("%d\n", stack_a->data);
 	ft_printstack(stack_a->next);
 }
 

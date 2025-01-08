@@ -6,7 +6,7 @@
 /*   By: oukhiar <oukhiar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 14:47:52 by oukhiar           #+#    #+#             */
-/*   Updated: 2025/01/07 16:22:03 by oukhiar          ###   ########.fr       */
+/*   Updated: 2025/01/08 19:33:48 by oukhiar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,9 @@ void	stack_push(t_stack **stack, int element)
 int	ft_stack_fill(int ac, char **av, t_stack **stack)
 {
 	int	value;
+	int i;
 
+	i = 0;	
 	ac -= 1;
 	while (ac >= 0)
 	{
@@ -48,6 +50,12 @@ int	ft_stack_fill(int ac, char **av, t_stack **stack)
 		stack_push(stack, value);
 		ac--;
 	}
+	while (av[i])
+	{
+		free (av[i]);
+		i++;
+	}
+	free (av);
 	return (1);
 }
 
