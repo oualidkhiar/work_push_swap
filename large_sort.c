@@ -6,7 +6,7 @@
 /*   By: oukhiar <oukhiar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 12:44:31 by oukhiar           #+#    #+#             */
-/*   Updated: 2025/01/07 17:15:04 by oukhiar          ###   ########.fr       */
+/*   Updated: 2025/01/09 14:16:19 by oukhiar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ void	ft_large_sort(t_stack **stack_a, t_stack **stack_b)
 	if (!sorted_arr)
 	{
 		write (2, "unable to allocate memory.!", 27);
+		ft_free(*stack_a);
 		exit (1);
 	}
 	ctls.mid = size / 2;

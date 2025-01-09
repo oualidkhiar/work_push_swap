@@ -6,7 +6,7 @@
 /*   By: oukhiar <oukhiar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 14:47:52 by oukhiar           #+#    #+#             */
-/*   Updated: 2025/01/08 19:33:48 by oukhiar          ###   ########.fr       */
+/*   Updated: 2025/01/09 15:17:38 by oukhiar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,22 @@ t_stack	*stack_new(int value)
 	return (new);
 }
 
-void	stack_push(t_stack **stack, int element)
+int	stack_push(t_stack **stack, int element)
 {
-	t_stack	*new_node;
+	t_stack	*new_stack;
 
-	new_node = stack_new(element);
-	new_node->next = *stack;
-	*stack = new_node;
+	new_stack = stack_new(element);
+	if (!new_stack)
+		return (0);
+	new_stack->next = *stack;
+	*stack = new_stack;
+	return (1);
 }
 
 int	ft_stack_fill(int ac, char **av, t_stack **stack)
 {
 	int	value;
-	int i;
 
-	i = 0;	
 	ac -= 1;
 	while (ac >= 0)
 	{
@@ -47,15 +48,11 @@ int	ft_stack_fill(int ac, char **av, t_stack **stack)
 		value = ft_atoi(av[ac]);
 		if (check_value(*stack, value) == 0)
 			return (0);
-		stack_push(stack, value);
+		if (stack_push(stack, value) == 0)
+			return (0);
 		ac--;
 	}
-	while (av[i])
-	{
-		free (av[i]);
-		i++;
-	}
-	free (av);
+	ft_free_filtered_input(av);
 	return (1);
 }
 

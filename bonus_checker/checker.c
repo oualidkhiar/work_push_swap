@@ -6,14 +6,14 @@
 /*   By: oukhiar <oukhiar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 19:10:54 by oukhiar           #+#    #+#             */
-/*   Updated: 2025/01/08 19:32:04 by oukhiar          ###   ########.fr       */
+/*   Updated: 2025/01/09 15:13:35 by oukhiar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../get_next_line/get_next_line.h"
 #include "../push_swap.h"
 
-static int ft_strcheck(char *line, char *str1)
+static int	ft_strcheck(char *line, char *str1)
 {
 	while (*line || *str1)
 	{
@@ -25,7 +25,7 @@ static int ft_strcheck(char *line, char *str1)
 	return (1);
 }
 
-static void ft_execute_actions(char *line, t_stack **stack_a, t_stack **stack_b)
+static void	ft_execute_actions(char *line, t_stack **stack_a, t_stack **stack_b)
 {
 	if (ft_strcheck(line, "sa\n"))
 		swap_ab(stack_a);
@@ -51,13 +51,16 @@ static void ft_execute_actions(char *line, t_stack **stack_a, t_stack **stack_b)
 		push_to_a(stack_a, stack_b);
 }
 
-static int ft_check_actions(char *line)
+static int	ft_check_actions(char *line)
 {
-	size_t i = 0;
-	char *hystack[2];
-	char *fin_hay = NULL;
-	int j = 0;
-	
+	size_t	i;
+	char	*hystack[2];
+	char	*fin_hay;
+	int		j;
+
+	i = 0;
+	j = 0;
+	fin_hay = NULL;
 	hystack[0] = "sasbssrarbrrpapb";
 	hystack[1] = "rrarrbrrr";
 	i = ft_strlen(line) - 1;
@@ -74,7 +77,7 @@ static int ft_check_actions(char *line)
 	return (0);
 }
 
-static void ft_helper(t_stack **stack_a, t_stack **stack_b)
+static void	ft_helper(t_stack **stack_a, t_stack **stack_b)
 {
 	char	*line;
 
@@ -83,10 +86,15 @@ static void ft_helper(t_stack **stack_a, t_stack **stack_b)
 	{
 		line = get_next_line(0);
 		if (!line || !ft_strlen(line))
+		{
+			free(line);
 			break ;
+		}
 		if (ft_check_actions(line) == 0)
 		{
 			write (2, "Error\n", 6);
+			ft_free(*stack_a);
+			ft_free(*stack_b);
 			free (line);
 			exit (1);
 		}
@@ -95,24 +103,31 @@ static void ft_helper(t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
-int main (int ac, char **av)
+int	main(int ac, char **av)
 {
-    t_stack *stack_a;
-	t_stack *stack_b;
-	char	**new_av;
-	int 	new_ac;
+	t_stack		*stack_a;
+	t_stack		*stack_b;
+	char		**new_av;
+	int			new_ac;
 
 	stack_a = NULL;
 	stack_b = NULL;
 	new_ac = 0;
 	new_av = filter(ac, av);
-    while (new_av[new_ac])
-	    new_ac++;
-	ft_stack_fill(new_ac, new_av, &stack_a);
+	while (new_av[new_ac])
+		new_ac++;
+	if (!ft_stack_fill(new_ac, new_av, &stack_a))
+	{
+		write (1, "Error\n", 6);
+		ft_free(stack_a);
+		ft_free_filtered_input(new_av);
+		exit (1);
+	}
 	ft_helper(&stack_a, &stack_b);
 	if (ft_is_sorted(stack_a) == 1 && ft_is_empty(stack_b) == 1)
 		write (1, "OK\n", 3);
 	else
 		write (1, "KO\n", 3);
-	return (0);
+	ft_free(stack_a);
+	ft_free(stack_b);
 }

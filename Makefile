@@ -5,6 +5,7 @@ CHECKER= checker
 SRCS =  push_swap.c actions_rotate.c actions_swap.c filtered_argc.c ft_manage_stack.c ft_manage_stack_utils.c ft_split.c\
 		libft_func.c simple_sort.c stack_operations.c large_sort.c Quick_sort.c ft_push_back.c ft_push_back_utils.c
 SRCS_BONUS = ./bonus_checker/checker.c\
+				./bonus_checker/checker_utils.c\
 				actions_rotate.c\
 				actions_swap.c\
 				ft_manage_stack.c\

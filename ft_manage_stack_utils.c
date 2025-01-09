@@ -6,7 +6,7 @@
 /*   By: oukhiar <oukhiar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 14:51:09 by oukhiar           #+#    #+#             */
-/*   Updated: 2025/01/07 16:20:02 by oukhiar          ###   ########.fr       */
+/*   Updated: 2025/01/09 15:29:16 by oukhiar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int	check_value(t_stack *stack, int value)
 
 int	ft_atoi(const char *str)
 {
-	int		res;
-	int		sign;
+	long long		res;
+	int				sign;
 
 	res = 0;
 	sign = 1;
@@ -50,6 +50,8 @@ int	ft_atoi(const char *str)
 		res = res * 10 + *str - 48;
 		str++;
 	}
+	if (res > INT_MAX)
+		ft_handle_error();
 	return (res * sign);
 }
 

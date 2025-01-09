@@ -6,7 +6,7 @@
 /*   By: oukhiar <oukhiar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 11:13:21 by oukhiar           #+#    #+#             */
-/*   Updated: 2025/01/07 17:24:12 by oukhiar          ###   ########.fr       */
+/*   Updated: 2025/01/09 15:20:07 by oukhiar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 
+// # define INT_MAX 2147483647
 typedef struct s_stack
 {
 	int				data;
@@ -31,11 +32,13 @@ typedef struct s_control
 }	t_control;
 
 void	ft_printstack(t_stack *stack_a);
-void	stack_push(t_stack **stack, int element);
+int		stack_push(t_stack **stack, int element);
 int		stack_pop(t_stack **stack);
 int		ft_stack_fill(int ac, char **av, t_stack **stack);
 t_stack	*stack_new(int value);
 int		ft_peek(t_stack *stack);
+void	ft_free(t_stack *stack_a);
+void	ft_free_filtered_input(char **av);
 
 void	swap_ab(t_stack **stack);
 void	swap_ss(t_stack **stack_a, t_stack **stack_b);

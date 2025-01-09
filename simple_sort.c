@@ -6,7 +6,7 @@
 /*   By: oukhiar <oukhiar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 18:13:37 by oukhiar           #+#    #+#             */
-/*   Updated: 2025/01/08 19:17:31 by oukhiar          ###   ########.fr       */
+/*   Updated: 2025/01/09 11:38:08 by oukhiar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void	execute_rra_pb(t_stack **stack_a, t_stack **stack_b, int size,
 static void	sort_two_arguments(t_stack **stack)
 {
 	(swap_ab(stack), ft_putstr("sa\n"));
+	ft_free(*stack);
 	exit(0);
 }
 
