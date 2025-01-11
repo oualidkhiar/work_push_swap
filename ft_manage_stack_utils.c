@@ -6,7 +6,7 @@
 /*   By: oukhiar <oukhiar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 14:51:09 by oukhiar           #+#    #+#             */
-/*   Updated: 2025/01/09 15:29:16 by oukhiar          ###   ########.fr       */
+/*   Updated: 2025/01/10 16:37:37 by oukhiar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,31 +30,6 @@ int	check_value(t_stack *stack, int value)
 	return (1);
 }
 
-int	ft_atoi(const char *str)
-{
-	long long		res;
-	int				sign;
-
-	res = 0;
-	sign = 1;
-	while ((*str >= 9 && *str <= 13) || *str == 32)
-		str++;
-	if (*str == '-' || *str == '+')
-	{
-		if (*str == '-')
-			sign = -1;
-		str++;
-	}
-	while (*str >= 48 && *str <= 57)
-	{
-		res = res * 10 + *str - 48;
-		str++;
-	}
-	if (res > INT_MAX)
-		ft_handle_error();
-	return (res * sign);
-}
-
 int	ft_is_digits(char *str)
 {
 	int	i;
@@ -72,6 +47,44 @@ int	ft_is_digits(char *str)
 	}
 	return (1);
 }
+
+static int	ft_reduce_atoi(const char **str, int sign)
+{
+	if (**str == '-' || **str == '+')
+	{
+		if (**str == '-')
+			sign = -1;
+		(*str)++;
+	}
+	return (sign);
+}
+
+int	ft_atoi(const char *str)
+{
+	int				res;
+	int				sign;
+	long long		tmp;
+
+	res = 0;
+	tmp = 0;
+	sign = 1;
+	while ((*str >= 9 && *str <= 13) || *str == 32)
+		str++;
+	sign = ft_reduce_atoi(&str, sign);
+	while (*str && *str >= 48 && *str <= 57)
+	{
+		tmp = tmp * 10 + *str - 48;
+		if ((tmp >= INT_MIN && sign > 0) || (tmp > INT_MIN && sign < 0))
+		{
+			write (2, "Error\n", 6);
+			exit (1);
+		}
+		res = tmp;
+		str++;
+	}
+	return (res * sign);
+}
+
 
 int	ft_is_sorted(t_stack *stack)
 {

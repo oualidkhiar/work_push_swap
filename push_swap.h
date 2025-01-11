@@ -6,7 +6,7 @@
 /*   By: oukhiar <oukhiar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 11:13:21 by oukhiar           #+#    #+#             */
-/*   Updated: 2025/01/09 15:20:07 by oukhiar          ###   ########.fr       */
+/*   Updated: 2025/01/10 16:38:34 by oukhiar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@
 # include <stdlib.h>
 # include <stdio.h>
 
-// # define INT_MAX 2147483647
+#ifndef INT_MIN
+# define INT_MIN 2147483648
+#endif
+
 typedef struct s_stack
 {
 	int				data;
@@ -57,6 +60,7 @@ size_t	ft_strlen(const char *s);
 int		check_value(t_stack *stack, int value);
 int		ft_atoi(const char *str);
 void	ft_putstr(char *s);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 int		ft_is_empty(t_stack *stack);
 int		ft_is_digits(char *str);

@@ -6,7 +6,7 @@
 /*   By: oukhiar <oukhiar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 16:46:56 by oukhiar           #+#    #+#             */
-/*   Updated: 2025/01/07 17:30:30 by oukhiar          ###   ########.fr       */
+/*   Updated: 2025/01/10 16:37:41 by oukhiar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,3 +80,19 @@ int	ft_size_of_stack(t_stack *stack)
 	}
 	return (size);
 }
+
+// int	ft_is_sorted(t_stack *stack)
+// {
+// 	if (ft_is_empty(stack) == 1)
+// 		return (1);
+// 	while (stack->next != NULL)
+// 	{
+// 		if (stack->data < stack->next->data)
+// 		{
+// 			stack = stack->next;
+// 			continue ;
+// 		}
+// 		return (0);
+// 	}
+// 	return (1);
+// }
